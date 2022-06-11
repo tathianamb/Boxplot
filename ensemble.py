@@ -3,7 +3,7 @@ from pandas import read_csv as csv
 from sklearn.metrics import mean_squared_error as MSE, mean_absolute_error as MAE
 
 
-base = "SaoLuiz"
+base = "Natal"
 
 df_y = csv("C:\\Users\\Licon\\Dropbox\\Utfpr\\Mestrado\\Matérias\\IA\\Boxplot\\time-series-output\\output" + base
                 + "\\saida_teste_mse.csv", index_col="Unnamed: 0", sep=';')
