@@ -1,11 +1,22 @@
 import matplotlib.pyplot as plt
 from pandas import read_csv as csv
+import os
 
+ROOT_DIR = os.path.dirname(os.path.abspath("top_level_file.txt"))
+print(ROOT_DIR)
 
 base = "SaoLuiz"
 
 dataframe = csv(".\\time-series-output\\output" + base
                 + "\\all_mse.csv", index_col="Unnamed: 0")
+
+cols = ["AR","ARMA","MLP","RBF","ELM","ESN",
+        "AR+MLP","AR+RBF","AR+ELM","AR+ESN","ARMA+MLP","ARMA+RBF","ARMA+ELM","ARMA+ESN",
+        "Mediana (ML)","Mediana (RNAs)","Mediana (RNAs sem RBF)","Mediana (MU)","Mediana (MU sem RBF)",
+        "Mediana (todos)","Média (ML)","Média (RNAs)","Média (RNAs sem RBF)","Média (MU)",
+        "Média (MU sem RBF)","Média (todos)"]
+
+dataframe = dataframe[cols]
 
 fig, ax1 = plt.subplots()
 
