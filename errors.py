@@ -30,40 +30,40 @@ def index_agreement(y_true, y_pred):
 
 base = "Brasilia"
 
-df_y = csv("C:\\Users\\Licon\\Dropbox\\Utfpr\\Mestrado\\Matérias\\IA\\Boxplot\\time-series-output\\output" + base
+df_y = csv(".\\time-series-output\\output" + base
                 + "\\saida_teste_mse.csv"
            , index_col="Unnamed: 0"
            , sep=';'
            )
 
-df_y.loc[:, "Ensemble - Mediana (ML)"] = df_y[['AR', 'ARMA']].median(axis=1, skipna=False)
-df_y.loc[:, "Ensemble - Mediana (RNAs)"] = df_y[['ELM', 'MLP', 'ESN', 'RBF']].median(axis=1, skipna=False)
-df_y.loc[:, "Ensemble - Mediana (RNAs sem RBF)"] = df_y[['ELM', 'MLP', 'ESN']].median(axis=1, skipna=False)
-df_y.loc[:, "Ensemble - Mediana (MU)"] = df_y[['AR', 'ARMA', 'ELM', 'MLP', 'ESN', 'RBF']].median(axis=1, skipna=False)
-df_y.loc[:, "Ensemble - Mediana (MU sem RBF)"] = df_y[['AR', 'ARMA', 'ELM', 'MLP', 'ESN']].median(axis=1, skipna=False)
-df_y.loc[:, "Ensemble - Mediana (todos)"] = df_y[["AR","ARMA","ELM","AR+ELM","ARMA+ELM","MLP",
+df_y.loc[:, "Mediana (ML)"] = df_y[['AR', 'ARMA']].median(axis=1, skipna=False)
+df_y.loc[:, "Mediana (RNAs)"] = df_y[['ELM', 'MLP', 'ESN', 'RBF']].median(axis=1, skipna=False)
+df_y.loc[:, "Mediana (RNAs sem RBF)"] = df_y[['ELM', 'MLP', 'ESN']].median(axis=1, skipna=False)
+df_y.loc[:, "Mediana (MU)"] = df_y[['AR', 'ARMA', 'ELM', 'MLP', 'ESN', 'RBF']].median(axis=1, skipna=False)
+df_y.loc[:, "Mediana (MU sem RBF)"] = df_y[['AR', 'ARMA', 'ELM', 'MLP', 'ESN']].median(axis=1, skipna=False)
+df_y.loc[:, "Mediana (todos)"] = df_y[["AR","ARMA","ELM","AR+ELM","ARMA+ELM","MLP",
                                                                        "AR+MLP","ARMA+MLP","ESN","AR+ESN","ARMA+ESN",
                                                                        "RBF","AR+RBF","ARMA+RBF"]].median(axis=1, skipna=False)
 
 
 
-df_y.loc[:, "Ensemble - Média (ML)"] = df_y[['AR', 'ARMA']].mean(axis=1, skipna=False)
-df_y.loc[:, "Ensemble - Média (RNAs)"] = df_y[['ELM', 'MLP', 'ESN', 'RBF']].mean(axis=1, skipna=False)
-df_y.loc[:, "Ensemble - Média (RNAs sem RBF)"] = df_y[['ELM', 'MLP', 'ESN', 'RBF']].mean(axis=1, skipna=False)
-df_y.loc[:, "Ensemble - Média (MU)"] = df_y[['AR', 'ARMA', 'ELM', 'MLP', 'ESN', 'RBF']].mean(axis=1, skipna=False)
-df_y.loc[:, "Ensemble - Média (MU sem RBF)"] = df_y[['AR', 'ARMA', 'ELM', 'MLP', 'ESN']].mean(axis=1, skipna=False)
-df_y.loc[:, "Ensemble - Média (todos)"] = df_y[["AR","ARMA","ELM","AR+ELM","ARMA+ELM","MLP",
+df_y.loc[:, "Média (ML)"] = df_y[['AR', 'ARMA']].mean(axis=1, skipna=False)
+df_y.loc[:, "Média (RNAs)"] = df_y[['ELM', 'MLP', 'ESN', 'RBF']].mean(axis=1, skipna=False)
+df_y.loc[:, "Média (RNAs sem RBF)"] = df_y[['ELM', 'MLP', 'ESN']].mean(axis=1, skipna=False)
+df_y.loc[:, "Média (MU)"] = df_y[['AR', 'ARMA', 'ELM', 'MLP', 'ESN', 'RBF']].mean(axis=1, skipna=False)
+df_y.loc[:, "Média (MU sem RBF)"] = df_y[['AR', 'ARMA', 'ELM', 'MLP', 'ESN']].mean(axis=1, skipna=False)
+df_y.loc[:, "Média (todos)"] = df_y[["AR","ARMA","ELM","AR+ELM","ARMA+ELM","MLP",
                                                                        "AR+MLP","ARMA+MLP","ESN","AR+ESN","ARMA+ESN",
                                                                        "RBF","AR+RBF","ARMA+RBF"]].mean(axis=1, skipna=False)
 
 df_errors = DataFrame(columns=['MSE', 'MAE', 'ARV', 'IA'])
 
 for model in ["AR", "ARMA", "MLP", "RBF", "ELM", "ESN", "AR+MLP", "AR+RBF", "AR+ELM", "AR+ESN", "ARMA+MLP", "ARMA+RBF",
-              "ARMA+ELM", "ARMA+ESN", "Ensemble - Mediana (ML)", "Ensemble - Mediana (RNAs)",
-              "Ensemble - Mediana (RNAs sem RBF)", "Ensemble - Mediana (MU)", "Ensemble - Mediana (MU sem RBF)",
-              "Ensemble - Mediana (todos)", "Ensemble - Média (ML)", "Ensemble - Média (RNAs)",
-              "Ensemble - Média (RNAs sem RBF)", "Ensemble - Média (MU)", "Ensemble - Média (MU sem RBF)",
-              "Ensemble - Média (todos)"]:
+              "ARMA+ELM", "ARMA+ESN", "Mediana (ML)", "Mediana (RNAs)",
+              "Mediana (RNAs sem RBF)", "Mediana (MU)", "Mediana (MU sem RBF)",
+              "Mediana (todos)", "Média (ML)", "Média (RNAs)",
+              "Média (RNAs sem RBF)", "Média (MU)", "Média (MU sem RBF)",
+              "Média (todos)"]:
 
     df_errors.loc[model, 'MSE'] = format(MSE(y_pred=df_y[[model]], y_true=df_y[['ACTUAL']]), '.4f')
 
@@ -75,5 +75,5 @@ for model in ["AR", "ARMA", "MLP", "RBF", "ELM", "ESN", "AR+MLP", "AR+RBF", "AR+
     df_errors.loc[model, 'IA'] = format(index_agreement(y_pred=df_y[[model]],
                                                  y_true=df_y[['ACTUAL']]), '.4f')
 print(df_errors)
-df_errors.to_csv("C:\\Users\\Licon\\Dropbox\\Utfpr\\Mestrado\\Matérias\\IA\\Boxplot\\time-series-output\\output" + base
+df_errors.to_csv(".\\time-series-output\\output" + base
                 + "\\errors.csv")
