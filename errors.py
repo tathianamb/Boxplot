@@ -75,5 +75,5 @@ for model in ["AR", "ARMA", "MLP", "RBF", "ELM", "ESN", "AR+MLP", "AR+RBF", "AR+
     df_errors.loc[model, 'IA'] = format(index_agreement(y_pred=df_y[[model]],
                                                  y_true=df_y[['ACTUAL']]), '.4f')
 print(df_errors)
-df_errors.to_csv(".\\time-series-output\\output" + base
-                + "\\errors.csv")
+#df_errors.to_csv(".\\time-series-output\\output" + base
+#                + "\\errors.csv")

@@ -1,7 +1,7 @@
 ﻿; Brasília ; Florianópolis ; Natal  ; Petrolina ; São Luís 
 ELM             ;110;70;50;70;50
 AR+ELM          ;70;120;70;70;70
-ARMA+ELM        ;11;140;60;50;50
+ARMA+ELM        ;110;140;60;50;50
 MLP             ;50;50;140;50;50
 AR+MLP          ;50;50;110;130;70
 ARMA+MLP        ;50;50;120;140;50

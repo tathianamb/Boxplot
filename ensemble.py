@@ -86,8 +86,8 @@ df_MAE.loc[:, "Média (todos)"] = MAE(y_true=df_y["ACTUAL"],
                                                                        "RBF","AR+RBF","ARMA+RBF"]]
                                                   .mean(axis=1, skipna=False))
 
-df_mse.to_csv(".\\time-series-output\\output" + base
-                + "\\all_mse.csv")
+#df_mse.to_csv(".\\time-series-output\\output" + base
+#                + "\\all_mse.csv")
 
 for column in df_mse.columns:
     print(column)
